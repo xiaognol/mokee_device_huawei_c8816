@@ -1,0 +1,1 @@
+add_lunch_combo mk_c8816-userdebug
