@@ -171,3 +171,5 @@ ro.external.sd.path=/storage/sdcard1
 #If audio track sets PCM playback usecase active but track stopped,to allow video record usecase
 rm.audio.exceptions = true
 #DTS2013122005998 Pawan 20131224 end
+sys.storage.ums_enabled=1
+sys.usb.config=mass_storage,adb

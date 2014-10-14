@@ -26,13 +26,12 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #<src>                                                <mnt_point>  <type>  <mnt_flags and options>                     <fs_mgr_flags>
-/dev/block/platform/msm_sdcc.1/by-name/system       /system         ext4    ro,barrier=1                                                    wait
-/dev/block/platform/msm_sdcc.1/by-name/cache        /cache          ext4    noatime,nosuid,nodev,barrier=1,data=ordered                     wait,check
-/dev/block/platform/msm_sdcc.1/by-name/userdata     /data           ext4    noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc     wait,check,length=-16384
+/system         ext4    /dev/block/platform/msm_sdcc.1/by-name/system       ro,barrier=1                                                    
+/cache          ext4    /dev/block/platform/msm_sdcc.1/by-name/cache        noatime,nosuid,nodev,barrier=1,data=ordered                     
+/data           ext4    /dev/block/platform/msm_sdcc.1/by-name/userdata     noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc
+/boot           emmc    /dev/block/platform/msm_sdcc.1/by-name/boot         defaults                                                        
+/recovery       emmc    /dev/block/platform/msm_sdcc.1/by-name/recovery     defaults                                                        
+/misc           emmc    /dev/block/platform/msm_sdcc.1/by-name/misc         defaults                                                        
 
-/dev/block/platform/msm_sdcc.1/by-name/boot         /boot           emmc    defaults                                                        defaults
-/dev/block/platform/msm_sdcc.1/by-name/recovery     /recovery       emmc    defaults                                                        defaults
-/dev/block/platform/msm_sdcc.1/by-name/misc         /misc           emmc    defaults                                                        defaults
-
-/devices/msm_sdcc.1/mmc_host                        auto            auto    nosuid,nodev                                wait,voldmanaged=sdcard0:25
-/devices/msm_sdcc.2/mmc_host                        auto            auto    nosuid,nodev                                wait,voldmanaged=sdcard1:auto
+/sdcard	       vfat	/dev/block/mmcblk1p1            flags=display="Micro SDcard";storage;wipeingui;removable
+/internal_sd   vfat    /dev/block/mmcblk0p25                              defaults
